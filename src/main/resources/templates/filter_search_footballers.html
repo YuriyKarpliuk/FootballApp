@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="ISO-8859-1">
+  <title>Football App</title>
+  <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand ms-2" th:href="@{/footballers}">Football App</a>
+
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse " id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/footballers}">Footballers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/managers}">Managers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/teams}">Teams</a>
+      </li>
+      <li class="nav-item">
+        <a  class="nav-link" th:href="@{/filter_search}">Filter Search</a>
+      </li>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0" th:action="@{/footballers/search}" method="get">
+      <div class="row">
+        <div class="col-9 col-sm-10">
+          <input class="form-control mr-sm-2" type="search" name="firstNameLike"
+                 placeholder="Search by first name" aria-label="Search">
+        </div>
+        <div class="col-3 col-sm-2">
+          <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+</nav>
+
+<div class = "container">
+  <div class = "row">
+    <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+      <h1 class = "text-center mt-3"> Filter Search Footballers </h1>
+      <div class = "card-body">
+        <form th:action="@{/filter_search/results}" th:object = "${footballersSearchRequest}" method="get"  >
+
+
+          <div class ="form-group">
+            <label> Footballer Age</label>
+            <input
+                    type = "text"
+                    name = "age"
+                    th:field = "*{age}"
+                    class = "form-control"
+                    placeholder="Enter Footballer Age"
+            />
+          </div>
+          <div class ="form-group">
+            <label> Age range </label>
+            <select class="form-select" th:field="*{ageOperation.name}">
+              <option th:each="ageOperation : ${ageOperations}" th:value="${ageOperation}" th:text="${ageOperation}"></option>
+            </select>
+          </div>
+
+          <div class ="form-group">
+            <label> Footballer Weight </label>
+            <input
+                    type = "text"
+                    name = "weight"
+                    th:field = "*{weight}"
+
+                    class = "form-control"
+                    placeholder="Enter Footballer Weight"
+            />
+          </div>
+
+          <div class ="form-group">
+            <label> Weight range </label>
+            <select class="form-select" th:field="*{weightOperation.name}">
+              <option th:each="weightOperation : ${weightOperations}" th:value="${weightOperation}" th:text="${weightOperation}"></option>
+
+
+            </select>
+          </div>
+
+          <div class ="form-group">
+            <label> Footballer Height </label>
+            <input
+                    type = "text"
+                    th:field = "*{height}"
+
+                    name = "height"
+                    class = "form-control"
+                    placeholder="Enter Footballer Height"
+            />
+          </div>
+          <div class ="form-group">
+            <label> Height range </label>
+            <select class="form-select" th:field="*{heightOperation.name}">
+              <option th:each="heightOperation : ${heightOperations}" th:value="${heightOperation}" th:text="${heightOperation}"></option>
+
+
+            </select>
+          </div>
+
+          <div class ="form-group">
+            <label> Footballer Price </label>
+            <input
+                    type = "text"
+                    name = "priceValue"
+                    th:field = "*{price}"
+
+                    class = "form-control"
+                    placeholder="Enter Footballer Price"
+            />
+          </div>
+          <div class ="form-group">
+            <label> Price range </label>
+            <select class="form-select" th:field="*{priceOperation.name}">
+              <option th:each="priceOperation : ${priceOperations}" th:value="${priceOperation}" th:text="${priceOperation}"></option>
+
+
+            </select>
+          </div>
+
+
+
+          <div class = "box-footer text-center mt-3">
+            <button type="submit" class = "btn btn-primary">
+              Search
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script th:src="@{/webjars/jquery/3.6.4/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

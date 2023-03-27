@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Football App</title>
+	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+	<!-- Brand -->
+	<a class="navbar-brand" th:href="@{/footballers}">Football App</a>
+
+	<!-- Toggler/collapsibe Button -->
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<!-- Navbar links -->
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/footballers}">Footballers</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/managers}">Managers</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/teams}">Teams</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<br>
+<br>
+<div class = "container">
+	<div class = "row">
+		<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+			<h1 class = "text-center mt-3"> Update Footballer </h1>
+			<div class = "card-body">
+				<form th:action="@{/footballers/update/{id} (id=${footballer.id})}" th:object = "${footballer}" method="POST"  enctype="multipart/form-data">
+					<div class ="form-group">
+						<label> Footballer First Name </label>
+						<input
+								type = "text"
+								name = "firstName"
+								th:field = "*{firstName}"
+								class = "form-control"
+								placeholder="Enter Footballer First Name"
+						/>
+					</div>
+
+					<div class ="form-group">
+						<label> Footballer Last Name </label>
+						<input
+								type = "text"
+								name = "lastName"
+								th:field = "*{lastName}"
+								class = "form-control"
+								placeholder="Enter Footballer Last Name"
+						/>
+					</div>
+
+					<div class ="form-group">
+						<label> Footballer Age </label>
+						<input
+								type = "text"
+								name = "age"
+								th:field = "*{age}"
+								class = "form-control"
+								placeholder="Enter Footballer Age"
+						/>
+					</div>
+
+					<div class ="form-group">
+						<label> Footballer Weight </label>
+						<input
+								type = "text"
+								name = "weight"
+								th:field = "*{weight}"
+								class = "form-control"
+								placeholder="Enter Footballer Weight"
+						/>
+					</div>
+
+					<div class ="form-group">
+						<label> Footballer Height </label>
+						<input
+								type = "text"
+								name = "height"
+								th:field = "*{height}"
+								class = "form-control"
+								placeholder="Enter Footballer Height"
+						/>
+					</div>
+
+					<div class ="form-group">
+						<label> Footballer Position </label>
+						<select class="form-select" th:field="*{position.name}">
+							<option th:each="position : ${positions}" th:value="${position}" th:text="${position}"></option>
+						</select>
+					</div>
+
+					<div class ="form-group">
+						<label> Footballer Team </label>
+						<select class="form-select" id="teamName" name="team.name">
+							<option th:each="name : ${teamsNames}"
+									th:value="${name}"
+									th:text="${name}"
+									th:selected="${footballer.team.name == name}">
+							</option>
+						</select>
+					</div>
+
+					<div class ="form-group">
+						<label> Footballer Price Value </label>
+						<input
+								type = "text"
+								name = "priceValue"
+								th:field = "*{priceValue}"
+								class = "form-control"
+								placeholder="Enter Footballer Price Value"
+						/>
+					</div>
+
+					<div class ="form-group">
+						<label> Footballer Image </label>
+
+
+						<input
+								type = "file"
+								name = "image"
+								accept="image/*"
+								class = "form-control"
+								placeholder="Choose Footballer Image"
+						/>
+					</div>
+
+					<div class = "box-footer text-center mt-3">
+						<button type="submit" class = "btn btn-primary">
+							Submit
+						</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<script th:src="@{/webjars/jquery/3.6.4/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"></script>
+</body>
+</html>
