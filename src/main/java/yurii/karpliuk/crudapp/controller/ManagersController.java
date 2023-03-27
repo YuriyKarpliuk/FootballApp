@@ -6,10 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import yurii.karpliuk.crudapp.dto.request.FootballersSearchRequest;
 import yurii.karpliuk.crudapp.dto.request.ManagersSearchRequest;
 import yurii.karpliuk.crudapp.enums.FilterOperation;
-import yurii.karpliuk.crudapp.model.Footballer;
 import yurii.karpliuk.crudapp.model.Manager;
 import yurii.karpliuk.crudapp.model.Team;
 import yurii.karpliuk.crudapp.service.ManagerService;

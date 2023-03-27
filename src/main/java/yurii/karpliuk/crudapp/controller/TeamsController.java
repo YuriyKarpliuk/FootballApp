@@ -5,11 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import yurii.karpliuk.crudapp.model.Manager;
 import yurii.karpliuk.crudapp.model.Team;
 import yurii.karpliuk.crudapp.service.TeamService;
 
-import java.util.List;
 import java.util.Optional;
 
 @Controller

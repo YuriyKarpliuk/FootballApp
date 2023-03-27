@@ -6,7 +6,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import yurii.karpliuk.crudapp.exceptions.CouldNotStoreFileException;
-import yurii.karpliuk.crudapp.model.Manager;
 import yurii.karpliuk.crudapp.model.Team;
 import yurii.karpliuk.crudapp.repository.TeamRepository;
 import yurii.karpliuk.crudapp.service.TeamService;

@@ -3,9 +3,7 @@ package yurii.karpliuk.crudapp.service;
 import org.springframework.data.domain.Page;
 import org.springframework.web.multipart.MultipartFile;
 import yurii.karpliuk.crudapp.dto.request.ManagersSearchRequest;
-import yurii.karpliuk.crudapp.model.Footballer;
 import yurii.karpliuk.crudapp.model.Manager;
-import yurii.karpliuk.crudapp.model.Position;
 import yurii.karpliuk.crudapp.model.Team;
 
 import java.util.Optional;
