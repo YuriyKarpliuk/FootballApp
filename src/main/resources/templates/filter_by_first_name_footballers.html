@@ -113,11 +113,11 @@
       </td>
       <td>
 
-        <a th:href="@{/position_footballers/{positionName}(positionName=${f.position.name})}"th:text="${f.position.name}" class="fw-bold mb-1"></a>
-
+        <a th:href="@{/search(positionName=${f.position.name},firstNameLike=${firstNameLike})}" th:text="${f.position.name}"
+           class="fw-bold mb-1"></a>
       </td>
       <td>
-        <a th:href="@{/team_footballers/{id}(id=${f.team.id})}"th:text="${f.team.name}" class="fw-bold mb-1"></a>
+        <a th:href="@{/searchByTeam(id=${f.team.id},firstNameLike=${firstNameLike})}"th:text="${f.team.name}" class="fw-bold mb-1"></a>
 
       </td>
       <td>
